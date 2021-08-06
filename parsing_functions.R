@@ -114,3 +114,10 @@ print_text_block <- function(text_blocks, label){
     sanitize_links() %>%
     cat()
 }
+
+image_link <- function(image,url,...){
+  htmltools::a(
+    href=url,
+    htmltools::img(src=image,...)
+  )
+}

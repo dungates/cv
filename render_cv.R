@@ -5,7 +5,6 @@
 # loaded and load the cached version in the .Rmd instead of re-fetching it twice
 # for the HTML and PDF rendering. This exercise is left to the reader.
 # Set workspace
-setwd("/Users/dunk/cv")
 # Knit the HTML version
 rmarkdown::render("cv.rmd",
                   params = list(pdf_mode = FALSE),
@@ -20,10 +19,5 @@ rmarkdown::render("cv.rmd",
 # Convert to PDF using Pagedown
 pagedown::chrome_print(input = tmp_html_cv_loc,
                        output = "cv.pdf")
-
-# Convert resume to PDF w/ Pagedown
-pagedown::chrome_print(input = "resume.html",
-                       output = "resume.pdf")
-
 
 

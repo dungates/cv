@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
   echo = FALSE
 )
 library(tidyverse)
+library(htmltools)
 library(glue)
 library(rlist)
 source("cv_printing_functions.r")
@@ -59,7 +60,7 @@ source('gather_data.R')
 # Now we just need to filter down the position data to include less verbose
 # categories and only the entries we have designated for the resume
 position_data <- position_data %>% 
-  filter(in_resume) %>%
+  dplyr::filter(in_resume) %>%
   mutate(
     # Build some custom sections by collapsing others
     section = case_when(
@@ -74,9 +75,6 @@ position_data <- position_data %>%
 
 Aside
 ================================================================================
-
-
-![logo](logo.png){width=100%}
 
 Contact {#contact}
 --------------------------------------------------------------------------------
@@ -99,40 +97,56 @@ build_skill_bars(skills)
 Projects {#open-source}
 --------------------------------------------------------------------------------
 
-All projects available at [github.com/itsthesnake](github.com/itsthesnake)
+All projects available on [github.](https://github.com/dungates)
 
 
-`Spotify Machine Learning`: Algorithmic music recommendation using markov chains.
+`Spotify Machine Learning`: Algorithmic music recommendation using markov chains. 
+
+```{r out.width = "49%", out.height = "49%", fig.show = "hold"}
+knitr::include_graphics(c("Images/spotify_board.png", "Images/tlop_bar.png"))
+```
 
 `Tinder Romance Algorithm`: K-means clustering to determine optimal dating app profiles.
 
+```{r out.width = "49%", out.height = "49%", fig.show = "hold"}
+knitr::include_graphics(c("Images/tinder_data.png", "Images/tinder_responses.png"))
+```
+
 `Avocado Price Forecasting 2021`: Forecasting w/ ARIMA, modelling, and time series analysis.
+
+```{r out.width = "49%", out.height = "49%", fig.show = "hold"}
+knitr::include_graphics(c("Images/avocado_price.png", "Images/avocado_production.png"))
+```
 
 `Wealth and Happiness`: Econometric exploration w/ linear, and logistic regression.
 
+```{r out.width = "49%", out.height = "49%", fig.show = "hold"}
+knitr::include_graphics(c("Images/wealth_happiness.png", "Images/wealth_inequality.jpeg"))
+```
 
 
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
 
-Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
 
-Source code: [github.com/itsthesnake/cv](https://github.com/itsthesnake/cv).
-
-Last updated on `r Sys.Date()`.
 
 
 
 Main
 ================================================================================
 
-Duncan Gates {#title}
+Duncan Gates • Data Scientist {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
 print_text_block(text_blocks, 'intro')
 ```
 
+
+Positions {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('positions')
+```
 
 
 Education {data-icon=graduation-cap data-concise=true}
@@ -143,21 +157,12 @@ position_data %>% print_section('education')
 ```
 
 
-
-Selected Positions {data-icon=suitcase}
---------------------------------------------------------------------------------
-
-```{r}
-position_data %>% print_section('positions')
-```
-
-
-
-Selected Certifications, Classes, and Honors {data-icon=newspaper}
+Certifications and Honors {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 ```{r}
 position_data %>% print_section('certifications')
 ```
+
 
 

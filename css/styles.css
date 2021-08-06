@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open%20Sans|Fira%20Sans&display=swap");
+
 
 
 
@@ -6,7 +7,7 @@
 
 body {
 
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
 
   font-weight: 300;
 
@@ -22,15 +23,23 @@ body {
 
 h1,
 
-h2,
+h2 {
+  font-family: "Fira Sans";
+}
 
 h3 {
 
-  font-family: "Playfair Display", serif;
+  font-family: "Fira Sans", serif;
 
   color: #000;
 
 }
+
+a {
+  color: #04ABEB;
+}
+
+
 
 
 
@@ -74,7 +83,7 @@ sup {
 
   --sidebar-width: 12rem; /* Shrink sidebar width  */
 
-  --sidebar-background-color: #f7fbff; /* Make sidebar blue */
+  --sidebar-background-color: #edf9ff; /* Make sidebar blue */
 
   --sidebar-horizontal-padding: 0.01in; /* Reduce sidebar padding */
 
